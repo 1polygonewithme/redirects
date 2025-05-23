@@ -9,7 +9,7 @@
 
       const payload = {
         video: "materials",
-        utm: Object.fromEntries(params.entries()),
+        source: params.get("utm_source") || "unknown",
         timestamp: new Date().toISOString()
       };
 
