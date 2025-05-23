@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Redirecting...</title>
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const baseUrl = "https://www.skool.com/blender-octane/about?ref=aad245f9653a467dafd2de356fac568b";
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const baseUrl = "https://www.skool.com/blender-octane/about?ref=aad245f9653a467dafd2de356fac568b";
 
-      const payload = {
-        video: "octane",
-        utm: Object.fromEntries(params.entries()),
-        timestamp: new Date().toISOString()
-      };
+  const payload = {
+    video: "octane",
+    utm: Object.fromEntries(params.entries()),
+    timestamp: new Date().toISOString()
+  };
 
-      const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
-      navigator.sendBeacon("https://webhook.site/9ec26738-6061-4c5b-8e1a-2c587356dc16", blob);
+  fetch("https://hook.us2.make.com/sasbrnx2btjqakafpg8jas9ssunc7c00", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/json" },
+    keepalive: true
+  });
 
-      window.location.href = `${baseUrl}&${params.toString()}`;
-    </script>
-  </head>
-  <body>
-    <p>Redirecting to the community...</p>
-  </body>
-</html>
+  window.location.href = `${baseUrl}&${params.toString()}`;
+</script>
