@@ -8,7 +8,7 @@
       const baseUrl = "https://www.skool.com/blender-octane/about?ref=aad245f9653a467dafd2de356fac568b";
 
       const payload = {
-        video: "emaillist",
+        video: "email_list",
         source: params.get("utm_source") || "unknown",
         timestamp: new Date().toISOString()
       };
