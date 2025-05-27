@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Redirecting...</title>
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const baseUrl = "https://www.skool.com/blender-octane/about?ref=aad245f9653a467dafd2de356fac568b";
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const baseUrl = "https://www.skool.com/blender-octane/about?ref=aad245f9653a467dafd2de356fac568b";
 
-      const payload = {
-        video: "vectron",
-        source: params.get("utm_source") || "unknown",
-        timestamp: new Date().toISOString()
-      };
+  const payload = {
+    video: "deepdives", // Change for each page
+    source: params.get("utm_source") || "unknown",
+    campaign: params.get("utm_campaign") || "",
+    timestamp: new Date().toISOString()
+  };
 
-      fetch("https://hook.us2.make.com/sasbrnx2btjqakafpg8jas9ssunc7c00", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "Content-Type": "application/json" },
-        keepalive: true
-      });
+  fetch("https://hook.us2.make.com/sasbrnx2btjqakafpg8jas9ssunc7c00", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/json" },
+    keepalive: true
+  });
 
-      window.location.href = `${baseUrl}&${params.toString()}`;
-    </script>
-  </head>
-  <body>
-    <p>Redirecting to the community...</p>
-  </body>
-</html>
+  window.location.href = `${baseUrl}&${params.toString()}`;
+</script>
